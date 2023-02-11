@@ -1,14 +1,18 @@
-const canvas = document.getElementById("game-area");
-const context = canvas.getContext("2d");
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
 
-// Set canvas size
-canvas.width = 500;
-canvas.height = 150;
 
-// Draw the ground
-context.fillStyle = "green";
-context.fillRect(0, canvas.height - 50, canvas.width, 50);
+ctx.beginPath();
+ctx.rect(20, 40, 50, 50);
+ctx.fillStyle = "#FF0000";
+ctx.fill();
+ctx.closePath();
 
-// Draw the dinosaur
-context.fillStyle = "brown";
-context.fillRect(100, canvas.height - 100, 50, 50);
+
+ctx.beginPath();
+ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
+ctx.fillStyle = "green";
+ctx.fill();
+ctx.closePath();
+
+
