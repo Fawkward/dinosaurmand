@@ -1,0 +1,5 @@
+/* Add your styles here */
+#game-area {
+    border: 1px solid black;
+    background-color: lightgray;
+}
