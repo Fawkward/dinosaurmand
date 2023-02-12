@@ -1,18 +1,31 @@
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
+const dino = document.getElementById("dino");
+const cactus = document.getElementById("cactus");
 
+document.addEventListener("keydown", function (event) {
+    jump();
+});
 
-ctx.beginPath();
-ctx.rect(20, 40, 50, 50);
-ctx.fillStyle = "#FF0000";
-ctx.fill();
-ctx.closePath();
+function jump() {
+    if (dino.classList != "jump") {
+        dino.classList.add("jump")
+    }
 
+    setTimeout(function () {
+        dino.classList.remove("jump")
+    }, 300);
+}
 
-ctx.beginPath();
-ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
-ctx.fillStyle = "green";
-ctx.fill();
-ctx.closePath();
+var scoreM = 0;
 
+let isAlive = setInterval(function () {
+    let dinoTop = parseInt(window.getComputedStyle(dino).getPropertyValue("top"));
+    let cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue("left"));
 
+    if (cactusLeft < 50 && cactusLeft > 0 && dinoTop >= 140) {
+        alert("Game over");
+        location.reload();
+    } else {
+        scoreM++;
+        document.getElementById("score").innerHTML = "score: " + scoreM;
+    }
+}, 100)
